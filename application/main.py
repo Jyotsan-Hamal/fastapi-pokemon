@@ -37,7 +37,7 @@ async def get_pokemons(name: str = None, type: str = None):
             records = await conn.fetch("SELECT name, image, types FROM pokemons WHERE types LIKE $1", '%' + type + '%')
         else:
             
-            records = await conn.fetch('SELECT name, image, types FROM pokemons limit 10')
+            records = await conn.fetch('SELECT name, image, types FROM pokemons')
         
         pokemons = [Pokemon(**dict(record, types=record['types'].split(', '))) for record in records]
         # pokemons = await conn.fetch('SELECT name, image, types FROM pokemons limit 10')

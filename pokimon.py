@@ -3,8 +3,8 @@ import requests
 def fetch_pokemon_data():
     
     url = "https://pokeapi.co/api/v2/pokemon"
-    offset = 500
-    limit =300
+    offset = 800
+    limit =200
     new_url = f"{url}?offset={offset}&limit={limit}"
     response = requests.get(new_url)
     data = response.json()
